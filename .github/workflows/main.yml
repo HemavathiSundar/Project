@@ -22,11 +22,6 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/flask-app
 
-      - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-
       - name: SSH into EC2 and deploy Docker container
         uses: appleboy/ssh-action@master
         with:
